@@ -1,0 +1,40 @@
+{
+  "name": "n8n-nodes-bookstore",
+  "version": "1.0.0",
+  "description": "An example of n8n custom node that manages resources and operations",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && gulp build:icons",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnlinp/n8n-nodes-bookstore.git"
+  },
+  "keywords": [
+    "n8n"
+  ],
+  "author": "johnlinp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnlinp/n8n-nodes-bookstore/issues"
+  },
+  "homepage": "https://github.com/johnlinp/n8n-nodes-bookstore#readme",
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Bookstore/Bookstore.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "gulp": "^4.0.2",
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
