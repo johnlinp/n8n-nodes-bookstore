@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-bookstore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An example of n8n custom node that manages resources and operations",
   "main": "index.js",
   "scripts": {
