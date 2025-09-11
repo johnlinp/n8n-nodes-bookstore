@@ -40,7 +40,6 @@ export class Bookstore implements INodeType {
                         value: 'order',
                     },
                 ],
-                default: 'book',
                 description: 'Select which resource to operate on',
             },
 
@@ -63,14 +62,15 @@ export class Bookstore implements INodeType {
                         name: 'List All Books',
                         value: 'listAllBooks',
                         description: 'Retrieve a list of all books',
+                        action: 'List All Books',
                     },
                     {
                         name: 'Register a New Book',
                         value: 'registerNewBook',
                         description: 'Add a new book to the inventory',
+                        action: 'Register a New Book',
                     },
                 ],
-                default: 'listAllBooks',
                 description: 'Select an operation for Book',
             },
 
@@ -93,19 +93,21 @@ export class Bookstore implements INodeType {
                         name: 'List All Orders',
                         value: 'listAllOrders',
                         description: 'Retrieve a list of all orders',
+                        action: 'List All Orders',
                     },
                     {
                         name: 'Create a New Order',
                         value: 'createNewOrder',
                         description: 'Create a new order with one or more books',
+                        action: 'Create a New Order',
                     },
                     {
                         name: 'Update Order',
                         value: 'updateOrder',
                         description: 'Update the status or details of an existing order',
+                        action: 'Update Order',
                     },
                 ],
-                default: 'listAllOrders',
                 description: 'Select an operation for Order',
             },
 
