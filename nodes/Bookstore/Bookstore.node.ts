@@ -132,6 +132,22 @@ export class Bookstore implements INodeType {
                 required: true,
                 description: 'The name (title) of the book to register',
             },
+            {
+                displayName: 'Is Featured',
+                name: 'isFeatured',
+                type: 'boolean',
+                displayOptions: {
+                    show: {
+                        resource: [
+                            'book',
+                        ],
+                        operation: [
+                            'registerNewBook',
+                        ],
+                    },
+                },
+                description: 'Is the book featured',
+            },
 
             //------------------------------------------------------------------
             //          ORDER PARAMETERS
@@ -234,10 +250,11 @@ export class Bookstore implements INodeType {
                         //--------------------------------------------------------
                         case 'registerNewBook': {
                             const bookName = this.getNodeParameter('bookName', itemIndex) as string;
+                            const isFeatured = this.getNodeParameter('isFeatured', itemIndex) as boolean;
                             // In a real scenario, you'd store this data in a DB or via an API.
                             responseData = {
                                 success: true,
-                                message: `Book "${bookName}" registered successfully.`,
+                                message: `Book "${bookName}" with isFeatured="${isFeatured}" registered successfully.`,
                             };
                             break;
                         }
