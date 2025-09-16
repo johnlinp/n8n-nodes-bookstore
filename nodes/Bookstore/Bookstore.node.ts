@@ -115,6 +115,45 @@ export class Bookstore implements INodeType {
             //          BOOK PARAMETERS
             //------------------------------------------------------------------
             {
+                displayName: 'Book Filter',
+                name: 'bookFilter',
+                type: 'fixedCollection',
+                displayOptions: {
+                    show: {
+                        resource: [
+                            'book',
+                        ],
+                        operation: [
+                            'listAllBooks',
+                        ],
+                    },
+                },
+                options: [
+                    {
+                        name: 'filter-fields',
+                        displayName: 'Filter Fields',
+                        values: [
+                            {
+                                name: 'genre',
+                                displayName: 'Genre',
+                                type: 'string',
+                                required: true,
+                                default: 'ALL'
+                            },
+                            {
+                                name: 'author',
+                                displayName: 'Author',
+                                type: 'string',
+                                required: true,
+                                default: 'ALL'
+                            }
+                        ]
+                    }
+                ],
+                required: true,
+                description: 'The name (title) of the book to register',
+            },
+            {
                 displayName: 'Book Name',
                 name: 'bookName',
                 type: 'string',
@@ -234,6 +273,7 @@ export class Bookstore implements INodeType {
                         case 'listAllBooks': {
                             // In a real scenario, you'd fetch data from a DB or API.
                             // Here we mock with sample data:
+                            const bookFilter = this.getNodeParameter('bookFilter', itemIndex) as object;
                             const books = [
                                 { bookId: 'B001', bookName: '1984' },
                                 { bookId: 'B002', bookName: 'Brave New World' },
@@ -242,6 +282,7 @@ export class Bookstore implements INodeType {
                             responseData = {
                                 success: true,
                                 books,
+                                bookFilter: bookFilter
                             };
                             break;
                         }
